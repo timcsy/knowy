@@ -262,7 +262,7 @@ After the user makes changes based on your suggestions:
 
 ## Guidelines
 
-- Use the user's language for all output
+- **Language**: Read `.knowy.json` → `language` field (e.g., `"zh-TW"`). Use that language for ALL output — section headers, descriptions, suggestions, everything. If `.knowy.json` is missing or has no language field, detect from conversation context or default to English.
 - Be specific — always quote relevant text from knowledge files
 - Distinguish between true contradictions (🔴) and tensions worth watching (🟡)
 - Don't flag stylistic differences as inconsistencies
