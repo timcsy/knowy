@@ -1,0 +1,38 @@
+# Experience
+
+<!--
+  This file captures distilled lessons from development — not a changelog,
+  but patterns that should influence future decisions.
+
+  Each lesson records the gap between expectation and reality.
+  Keep entries short and actionable. Detailed event records belong in
+  .knowledge/history/.
+-->
+
+## Lessons
+
+<!--
+  Add a new section for each significant lesson. Use the format below.
+-->
+
+### [Lesson Title]
+
+- **Pattern**: [Reusable insight in one sentence]
+- **What happened**: [Brief description of the event]
+- **Expected vs Actual**: [What you thought would happen vs what did]
+- **Takeaway**: [What to do differently next time]
+- **Source**: [Link to history/ entry or PR/commit, if available]
+
+<!--
+  Example:
+
+  ### Verify before reimplementing
+
+  - **Pattern**: Always check if the feature already exists before building it.
+  - **What happened**: Spent two days building a type checker, then discovered
+    the core module already had one.
+  - **Expected vs Actual**: Expected the core to only handle evaluation.
+    Actually, it already included full type checking.
+  - **Takeaway**: Read existing code thoroughly. Search for keywords first.
+  - **Source**: history/010-duplicate-checker.md
+-->

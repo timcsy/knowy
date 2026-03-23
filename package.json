@@ -1,0 +1,35 @@
+{
+  "name": "knowy",
+  "version": "0.1.0",
+  "description": "Give your AI a structured project brain",
+  "type": "module",
+  "bin": {
+    "knowy": "./bin/knowy.js",
+    "knowy-mcp": "./bin/knowy-mcp.js"
+  },
+  "files": [
+    "bin/",
+    "src/",
+    "templates/",
+    "skills/",
+    "snippets/"
+  ],
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "keywords": [
+    "ai",
+    "knowledge",
+    "development",
+    "methodology",
+    "claude",
+    "cursor",
+    "copilot",
+    "agents"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/timcsy/knowy"
+  }
+}
