@@ -15,6 +15,13 @@ Help the user decide and plan what to work on next, grounded in the project's pr
 $ARGUMENTS
 ```
 
+## Governance Principles
+
+- **Principles are the highest authority.** Every recommendation must be traceable to a principle. If it isn't, flag it as a pragmatic choice.
+- **Vision is the roadmap.** Follow the established order unless experience provides compelling reason to deviate.
+- **Experience is the guardrail.** Always check for relevant lessons before recommending an approach.
+- **Never auto-invoke other skills.** Only suggest them.
+
 ## Workflow
 
 ### 1. Read knowledge files
@@ -24,32 +31,40 @@ Read all three core files:
 - `.knowledge/vision.md`
 - `.knowledge/experience.md`
 
-Also check `.knowledge/design/` for relevant design documents.
+Also check:
+- `.knowledge/design/` for relevant design documents
+- Project structure and recent git log for actual state
 
 ### 2. Determine direction
 
 **If `$ARGUMENTS` provides a direction** (e.g., "error handling", "mobile support"):
 - Locate it in the vision roadmap
-- Check prerequisites — are prior milestones complete?
-- Find relevant experience entries (lessons, pitfalls)
+- Check prerequisites — are prior milestones actually complete? (check code, not just what vision says)
+- Find relevant experience entries (lessons, pitfalls, patterns)
 - Find relevant design documents
+- Check if principles constrain the approach
 
 **If `$ARGUMENTS` is empty**:
 - Look at the vision roadmap for the next incomplete milestone
+- Cross-reference with actual project state (what's really done?)
 - Consider experience lessons that might affect priority
-- Suggest the most logical next step
+- Suggest the most logical next step with justification
 
 ### 3. Converge
 
-Through conversation with the user, converge on:
+Through conversation with the user, converge on all of these items:
 
 - **Feature name**: short, descriptive
-- **One-line description**: what it delivers
+- **One-line description**: what it delivers to the user/system
 - **Roadmap position**: which phase/milestone it belongs to
-- **Scope**: what's included and what's explicitly excluded
-- **From principles**: how this feature follows from or serves the project's principles
-- **From experience**: relevant lessons that should inform the implementation
-- **Risks**: based on experience, what could go wrong
+- **Prerequisites**: what must be done first (check if actually done)
+- **Scope**:
+  - What's included (explicit list)
+  - What's explicitly excluded (prevent scope creep)
+- **Grounded in principles**: which principle(s) this serves, and how. Show the derivation chain.
+- **Informed by experience**: relevant lesson(s) and how to apply them. Quote the specific lesson.
+- **Risks**: based on experience, what could go wrong? What mitigation is available?
+- **Success criteria**: how do we know this is done? Make it concrete and verifiable.
 
 ### 4. Output
 
@@ -62,19 +77,29 @@ Present a concise feature brief:
 
 **Roadmap**: [Phase/milestone reference]
 
+**Prerequisites**:
+- [x] [Completed prerequisite]
+- [ ] [Missing prerequisite — must be addressed first]
+
 **Scope**:
 - ✅ [Included]
 - ✅ [Included]
 - ❌ [Explicitly excluded]
 
 **Grounded in principles**:
-- [Which principle(s) this serves and how]
+- Principle: "[quoted principle]"
+- How this feature serves it: [explanation]
 
 **Informed by experience**:
-- [Relevant lesson(s) and how to apply them]
+- Lesson: "[quoted lesson from experience.md]"
+- How to apply: [specific guidance for this feature]
 
 **Risks**:
-- [Known risk from experience + mitigation]
+- [Known risk from experience] → Mitigation: [approach]
+
+**Success criteria**:
+- [ ] [Concrete, verifiable criterion]
+- [ ] [Concrete, verifiable criterion]
 ```
 
 ### 5. Suggest next action
@@ -96,7 +121,8 @@ After presenting the feature brief, scan the project for spec/planning tools:
 
 - Use the user's language for all output
 - Keep the feature brief concise — it's a starting point, not a full spec
-- Ground every recommendation in the knowledge files — don't invent principles or cite non-existent experience
+- **Every recommendation must reference knowledge files.** Don't invent principles or cite non-existent experience. If there's no relevant principle, say so explicitly.
+- Verify project state before claiming prerequisites are met — check actual code, not just what vision says
+- If the user's direction conflicts with principles or experience, flag it clearly with the specific conflict, but let them decide
 - If the roadmap is empty or unclear, help the user think through priorities rather than guessing
 - Never auto-invoke other skills — only suggest them
-- If the user's direction conflicts with principles or experience, flag it clearly but let them decide

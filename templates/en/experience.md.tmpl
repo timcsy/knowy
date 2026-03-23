@@ -4,7 +4,7 @@
   This file captures distilled lessons from development — not a changelog,
   but patterns that should influence future decisions.
 
-  Each lesson records the gap between expectation and reality.
+  Each lesson records the gap between theory and reality.
   Keep entries short and actionable. Detailed event records belong in
   .knowledge/history/.
 -->
@@ -12,15 +12,22 @@
 ## Lessons
 
 <!--
-  Add a new section for each significant lesson. Use the format below.
+  Add a new section for each significant lesson. Use the four-part format:
+  1. What theory/expectation said
+  2. What actually happened
+  3. How you resolved it
+  4. The distilled lesson
+
+  This format forces you to articulate *why* something was surprising,
+  not just *what* happened.
 -->
 
 ### [Lesson Title]
 
-- **Pattern**: [Reusable insight in one sentence]
-- **What happened**: [Brief description of the event]
-- **Expected vs Actual**: [What you thought would happen vs what did]
-- **Takeaway**: [What to do differently next time]
+- **Theory said**: [What you expected based on design, principles, or assumptions]
+- **Actually happened**: [What really occurred — be specific]
+- **Resolved by**: [How the gap was bridged — the fix, workaround, or insight]
+- **Lesson**: [One-sentence reusable pattern for next time]
 - **Source**: [Link to history/ entry or PR/commit, if available]
 
 <!--
@@ -28,11 +35,13 @@
 
   ### Verify before reimplementing
 
-  - **Pattern**: Always check if the feature already exists before building it.
-  - **What happened**: Spent two days building a type checker, then discovered
-    the core module already had one.
-  - **Expected vs Actual**: Expected the core to only handle evaluation.
-    Actually, it already included full type checking.
-  - **Takeaway**: Read existing code thoroughly. Search for keywords first.
+  - **Theory said**: The core module only handles evaluation, so we need
+    to build a type checker from scratch.
+  - **Actually happened**: After two days of building, discovered the core
+    module already included full type checking — it just wasn't documented.
+  - **Resolved by**: Deleted the duplicate implementation and documented
+    the existing one.
+  - **Lesson**: Always search existing code before building. The answer
+    may already be there, undocumented.
   - **Source**: history/010-duplicate-checker.md
 -->
