@@ -1,26 +1,30 @@
 import { VERSION } from './constants.js';
+import { resolveLanguage, detectLanguage, normalizeLanguage, t } from './i18n.js';
 
-const HELP = `
-knowy v${VERSION} — Give your AI a structured project brain
+function buildHelp(lang) {
+  return `
+knowy v${VERSION} — ${t(lang, 'cli.help.tagline')}
 
-Usage:
+${t(lang, 'cli.help.usage')}:
   knowy <command>
 
-Commands:
-  init        Scaffold .knowledge/ structure and connect AI tools
-  update      Update skills, templates, and tool connections
-  setup-mcp   Configure MCP server for your AI tool
+${t(lang, 'cli.help.commands')}:
+  init        ${t(lang, 'cli.help.init')}
+  update      ${t(lang, 'cli.help.update')}
+  setup-mcp   ${t(lang, 'cli.help.setupMcp')}
 
-Options:
-  --help, -h       Show this help message
-  --version, -v    Show version number
+${t(lang, 'cli.help.options')}:
+  --help, -h       ${t(lang, 'cli.help.help')}
+  --version, -v    ${t(lang, 'cli.help.version')}
 `.trim();
+}
 
 export async function run(args) {
   const cmd = args[0];
+  const lang = await resolveLanguage(process.cwd()).catch(() => normalizeLanguage(detectLanguage()));
 
   if (!cmd || cmd === '--help' || cmd === '-h') {
-    console.log(HELP);
+    console.log(buildHelp(lang));
     return;
   }
 
@@ -47,7 +51,8 @@ export async function run(args) {
     return;
   }
 
-  console.error(`Unknown command: ${cmd}`);
-  console.log(HELP);
+  const unknownMsg = t(lang, 'cli.unknownCommand');
+  console.error(typeof unknownMsg === 'function' ? unknownMsg(cmd) : `Unknown command: ${cmd}`);
+  console.log(buildHelp(lang));
   process.exitCode = 1;
 }

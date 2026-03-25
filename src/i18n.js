@@ -98,6 +98,17 @@ const messages = {
     'cli.mcp.restart': '   Restart your AI tool to activate the Knowy MCP server.',
 
     'ui.toggle': 'Toggle (e.g., 1,3,5) or press Enter to confirm: ',
+
+    'cli.help.tagline': 'Give your AI a structured project brain',
+    'cli.help.usage': 'Usage',
+    'cli.help.commands': 'Commands',
+    'cli.help.options': 'Options',
+    'cli.help.init': 'Scaffold .knowledge/ structure and connect AI tools',
+    'cli.help.update': 'Update skills, templates, and tool connections',
+    'cli.help.setupMcp': 'Configure MCP server for your AI tool',
+    'cli.help.help': 'Show this help message',
+    'cli.help.version': 'Show version number',
+    'cli.unknownCommand': (cmd) => `Unknown command: ${cmd}`,
   },
 
   'zh-TW': {
@@ -138,6 +149,17 @@ const messages = {
     'cli.mcp.restart': '   請重啟你的 AI 工具以啟用 Knowy MCP server。',
 
     'ui.toggle': '切換（例如 1,3,5）或按 Enter 確認：',
+
+    'cli.help.tagline': '給你的 AI 一個結構化的專案大腦',
+    'cli.help.usage': '用法',
+    'cli.help.commands': '指令',
+    'cli.help.options': '選項',
+    'cli.help.init': '建立 .knowledge/ 結構並連結 AI 工具',
+    'cli.help.update': '更新 skills、模板和工具連結',
+    'cli.help.setupMcp': '為你的 AI 工具設定 MCP server',
+    'cli.help.help': '顯示此說明',
+    'cli.help.version': '顯示版本號',
+    'cli.unknownCommand': (cmd) => `未知的指令：${cmd}`,
   },
 };
 
