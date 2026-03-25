@@ -1,5 +1,7 @@
 # Knowy
 
+[繁體中文](README.zh-TW.md)
+
 **Give your AI a structured project brain.**
 
 Your AI assistant sees your code — but does it understand *why* you built it this way? What principles you won't compromise on? What you already tried and learned from?
@@ -56,10 +58,12 @@ Knowy installs four skills for Claude Code (under the `/knowy` namespace):
 
 ### `/knowy judge` — Knowledge Health Check
 
-Runs 11 checks across your knowledge files:
+Runs 17 checks across your knowledge files:
 
-- **Internal coherence** (3): Is each file self-consistent?
+- **Self-consistency** (3): Are derivation chains intact? Is the structure sound?
+- **Internal coherence** (3): Are there contradictions within each file?
 - **Cross-references** (6): Do the files agree with each other? Checks all six directions (e.g., "Does experience support the vision?" is different from "Does vision address what experience found?")
+- **Project alignment** (3): Do the files match the actual project state (code, dependencies, git history)?
 - **Overall** (1): Synthesis — where should you focus?
 - **Beyond scope** (1): Is there content that belongs elsewhere?
 
