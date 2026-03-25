@@ -11,7 +11,7 @@ Knowy gives your project three structured knowledge files that any AI tool can r
 ## Quick Start
 
 ```bash
-npx knowy init
+npx knowy-cli init
 ```
 
 This creates a `.knowledge/` directory in your project and connects it to your AI tools. Then, in your AI tool (e.g., Claude Code):
@@ -86,7 +86,7 @@ Knowy detects and connects to 25+ AI and spec tools:
 Knowy also works as an MCP (Model Context Protocol) server, so your AI tool can use Knowy directly without the CLI:
 
 ```bash
-npx knowy setup-mcp
+npx knowy-cli setup-mcp
 ```
 
 This configures the MCP server for your AI tool (Claude Code, Claude Desktop, Cursor, etc.). Once set up, your AI can call `knowy_init`, `knowy_update`, `knowy_judge`, and `knowy_next` as native tools.
@@ -98,7 +98,7 @@ You can also configure it manually. Add to your AI tool's MCP settings:
   "mcpServers": {
     "knowy": {
       "command": "npx",
-      "args": ["knowy-mcp"]
+      "args": ["-y", "knowy-cli", "--", "knowy-mcp"]
     }
   }
 }
@@ -109,7 +109,7 @@ You can also configure it manually. Add to your AI tool's MCP settings:
 When Knowy releases a new version with improved skills or templates:
 
 ```bash
-npx knowy update
+npx knowy-cli update
 ```
 
 This updates skills and templates (managed files) without touching your knowledge files. It also detects any new AI tools you've added since the last run.

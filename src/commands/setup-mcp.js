@@ -31,7 +31,7 @@ const MCP_TARGETS = [
 
 const MCP_ENTRY = {
   command: 'npx',
-  args: ['knowy-mcp'],
+  args: ['-y', 'knowy-cli', '--', 'knowy-mcp'],
 };
 
 async function readJsonSafe(path) {
