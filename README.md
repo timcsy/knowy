@@ -8,9 +8,11 @@
 
 ## The Problem
 
-You ask your AI to add a feature. It writes code that works — but violates your architecture. You ask it to fix a bug. It picks the approach you already tried and failed with last month.
+You ask your AI to add a feature. It writes code that works — but makes choices you wouldn't make.
 
-**Your AI doesn't know what you know.** It doesn't know your principles, your roadmap, or the lessons you've learned the hard way.
+Maybe it picks a complex library when your project values simplicity. Maybe it restructures files in a way that breaks your team's conventions. Or maybe it suggests the exact approach you tried last month — the one that failed.
+
+**Your AI doesn't know what you know.** It sees your code, but not your reasoning, your plans, or your hard-won lessons.
 
 ## The Fix
 
@@ -37,11 +39,17 @@ Done. Knowie creates the files, detects your AI tools (25+ supported), and conne
 
 ## What Changes
 
-**Before Knowie:**
-> "Add caching" → AI picks Redis because it's popular. You wanted in-memory because principle #2 says "no external dependencies for core features."
+**Example 1 — A beginner building a personal project:**
 
-**After Knowie:**
-> "Add caching" → AI reads your principles, picks in-memory, and notes the risk from experience.md where caching caused stale data in a similar context.
+*Before:* "Add user login" → AI generates a full OAuth2 + JWT + refresh token system with three services.
+
+*After:* AI reads `principles.md` ("keep it simple — this is a learning project") and `vision.md` ("single-user app, no registration needed"). It adds a simple password check. Done in 5 minutes instead of 5 hours.
+
+**Example 2 — A senior engineer on a team project:**
+
+*Before:* "Add caching" → AI picks Redis because it's popular online. But your principle says "no external dependencies for core features," and `experience.md` records that a similar caching layer caused stale data issues last quarter.
+
+*After:* AI reads all three files. It picks in-memory caching, adds a TTL based on the stale-data lesson, and links to the relevant design doc in `knowledge/design/`.
 
 ## How It Works
 
@@ -51,6 +59,8 @@ Done. Knowie creates the files, detects your AI tools (25+ supported), and conne
 | `vision.md` | Where are we going? | After milestones |
 | `experience.md` | What have we learned? | After surprises |
 
+Each file has guided comments to help you get started — no blank page anxiety.
+
 Three subdirectories hold the details:
 
 | Directory | Contains | Distills into |
@@ -59,18 +69,28 @@ Three subdirectories hold the details:
 | `design/` | Architecture decisions | → vision.md |
 | `history/` | Event records | → experience.md |
 
+Think of the three files as the *summary* and the subdirectories as the *supporting evidence*. You start with the summary; the details grow over time.
+
 ## Skills
 
 If your AI tool supports skills (e.g., Claude Code), Knowie gives you four commands:
 
 | Skill | What it does |
 |-------|-------------|
-| `/knowie init` | Guided conversation to fill in your knowledge files |
-| `/knowie update` | Check file structure and suggest improvements |
-| `/knowie judge` | 17-point health check: consistency, coherence, alignment with actual code |
-| `/knowie next` | Plan the next step, grounded in principles and informed by experience |
+| `/knowie init` | Guided conversation to help you fill in your knowledge files — it asks you questions and drafts content |
+| `/knowie update` | Check file structure and suggest improvements as your project evolves |
+| `/knowie judge` | Health check: are your files consistent with each other and with your actual code? |
+| `/knowie next` | Plan the next step, grounded in your principles and informed by your experience |
 
-**`/knowie judge`** is the core loop. It catches when your vision contradicts your experience, when your principles don't match your code, or when your files have gone stale. 🟢 healthy, 🟡 tension, 🔴 conflict — with specific quotes and actions.
+### `/knowie judge` — The Core Loop
+
+After you finish a feature, run `/knowie judge`. It checks 17 things:
+
+- Are your three files internally consistent? (no self-contradictions)
+- Do they agree with each other? (e.g., does your vision match what experience taught you?)
+- Do they match your actual project? (e.g., does your roadmap say "Phase 1 done" when it really is?)
+
+Results: 🟢 healthy, 🟡 worth watching, 🔴 needs action — each with quotes from your files and concrete suggestions.
 
 ## Works With Your Tools
 
@@ -82,7 +102,7 @@ Knowie connects to **25+ AI tools and spec tools** — automatically:
 
 **Standard:** AGENTS.md (cross-tool standard, 60k+ repos)
 
-`knowie init` detects what you have and injects a reference to your `knowledge/` files. No manual config.
+`knowie init` detects what you have and injects a reference to your `knowledge/` files. No manual config needed.
 
 ## MCP Server
 
@@ -119,22 +139,26 @@ Updates skills and templates without touching your knowledge files. Catches new 
 
 ## Design Principles
 
-- **Plain Markdown** — `knowledge/` works with any tool, or none. No proprietary format.
+- **Plain Markdown** — `knowledge/` works with any tool, or none. No proprietary format, no lock-in.
 - **No npm dependencies** — only Node.js built-ins. Install is instant.
-- **No lock-in** — Knowie connects to your tools, not the other way around.
-- **AI-native** — `--yes` flag for zero-prompt operation. Your AI can install and update Knowie without leaving the conversation.
+- **AI-native** — `--yes` flag for zero-prompt operation. Your AI can install and update Knowie without you leaving the conversation.
+- **Progressive** — start with just the three files. Add skills, MCP, or subdirectories when you're ready.
 
 ## Why Three Files?
 
-The structure maps to the minimal unit of knowledge — a *judgment*:
+Every decision you make has three parts: what's *correct* (your principles), what you're *building* (your vision), and what *context* you're in (your experience). Miss one, and you get:
 
-- **Principles** = what is correct (the standard)
-- **Vision** = what is being built (the construction)
-- **Experience** = what context we're in (the situation)
+- Principles without vision → rigid rules that don't ship anything
+- Vision without experience → plans that repeat past mistakes
+- Experience without principles → lessons with no framework to apply them
 
-Each only makes sense in relation to the other two. `/knowie judge` verifies they're aligned. `/knowie next` uses all three to plan coherent next steps.
+Knowie keeps all three in sync. `/knowie judge` checks the alignment. `/knowie next` uses all three to plan coherent next steps.
 
-Rooted in [triperspectivalism](https://en.wikipedia.org/wiki/Triperspectivalism) and type-theoretic judgments (Γ ⊢ t : A).
+<details>
+<summary>For the theoretically curious</summary>
+
+This maps to the structure of a *judgment* in type theory (Γ ⊢ t : A) and [triperspectivalism](https://en.wikipedia.org/wiki/Triperspectivalism) in epistemology. The three perspectives are co-dependent and irreducible — each only makes sense in relation to the other two.
+</details>
 
 ## License
 
