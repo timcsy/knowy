@@ -1,6 +1,6 @@
 import { readFile } from 'node:fs/promises';
 import { join } from 'node:path';
-import { KNOWY_CONFIG } from './constants.js';
+import { KNOWIE_CONFIG } from './constants.js';
 
 /**
  * Detect the user's language from system environment.
@@ -28,13 +28,12 @@ export function detectLanguage() {
 }
 
 /**
- * Resolve language: .knowy.json override > detected system language.
+ * Resolve language: .knowie.json override > detected system language.
  * Normalizes to a supported language key.
  */
 export async function resolveLanguage(projectRoot) {
-  // Check .knowy.json override
   try {
-    const config = JSON.parse(await readFile(join(projectRoot, KNOWY_CONFIG), 'utf-8'));
+    const config = JSON.parse(await readFile(join(projectRoot, KNOWIE_CONFIG), 'utf-8'));
     if (config.language) return normalizeLanguage(config.language);
   } catch { /* no config yet */ }
 
@@ -50,9 +49,6 @@ export function normalizeLanguage(locale) {
   if (!locale) return 'en';
   const lower = locale.toLowerCase();
   if (lower.startsWith('zh')) return 'zh-TW';
-  // Add more mappings here:
-  // if (lower.startsWith('ja')) return 'ja';
-  // if (lower.startsWith('ko')) return 'ko';
   return 'en';
 }
 
@@ -60,7 +56,6 @@ export function normalizeLanguage(locale) {
 
 const messages = {
   en: {
-    // CLI
     'cli.init.exists': '.knowledge/ already exists.',
     'cli.init.continue': 'Continue? (Knowledge files will not be overwritten)',
     'cli.init.aborted': 'Aborted.',
@@ -75,13 +70,13 @@ const messages = {
     'cli.init.handshake.appended': (file, tool) => `  ✓ Added to ${file} (${tool})`,
     'cli.init.skills': (n) => `  ✓ Installed ${n} skills to .claude/skills/`,
     'cli.init.done': '✅ Done!',
-    'cli.init.nextStep': 'Next step: run /knowy init in your AI tool to populate your knowledge files.',
+    'cli.init.nextStep': 'Next step: run /knowie init in your AI tool to populate your knowledge files.',
     'cli.init.selectLanguage': 'Select language for templates:',
     'cli.init.langDetected': (lang) => `  Detected language: ${lang}`,
 
     'cli.update.title': 'update',
-    'cli.update.noConfig': '.knowy.json not found. Run "knowy init" first.',
-    'cli.update.badConfig': 'Failed to read .knowy.json. Run "knowy init" to re-initialize.',
+    'cli.update.noConfig': '.knowie.json not found. Run "knowie init" first.',
+    'cli.update.badConfig': 'Failed to read .knowie.json. Run "knowie init" to re-initialize.',
     'cli.update.templates': (n) => `  ✓ Updated ${n} templates`,
     'cli.update.skills': (n) => `  ✓ Updated ${n} skills`,
     'cli.update.newTools': (names) => `  New tools detected: ${names}`,
@@ -90,12 +85,12 @@ const messages = {
     'cli.update.done': '✅ Update complete.',
 
     'cli.mcp.title': 'MCP setup',
-    'cli.mcp.selectTools': 'Which tools should use the Knowy MCP server?',
+    'cli.mcp.selectTools': 'Which tools should use the Knowie MCP server?',
     'cli.mcp.noSelection': 'No tools selected. Aborted.',
     'cli.mcp.alreadyConfigured': (name) => `  · ${name}: already configured`,
-    'cli.mcp.added': (name) => `  ✓ ${name}: added Knowy MCP server`,
+    'cli.mcp.added': (name) => `  ✓ ${name}: added Knowie MCP server`,
     'cli.mcp.done': '✅ MCP setup complete.',
-    'cli.mcp.restart': '   Restart your AI tool to activate the Knowy MCP server.',
+    'cli.mcp.restart': '   Restart your AI tool to activate the Knowie MCP server.',
 
     'ui.toggle': 'Toggle (e.g., 1,3,5) or press Enter to confirm: ',
 
@@ -124,15 +119,15 @@ const messages = {
     'cli.init.handshake.created': (file, tool) => `  ✓ 已建立 ${file}（${tool}）`,
     'cli.init.handshake.updated': (file, tool) => `  ✓ 已更新 ${file}（${tool}）`,
     'cli.init.handshake.appended': (file, tool) => `  ✓ 已加入 ${file}（${tool}）`,
-    'cli.init.skills': (n) => `  ✓ 已安裝 ${n} 個 skills 到 .claude/skills/knowy/`,
+    'cli.init.skills': (n) => `  ✓ 已安裝 ${n} 個 skills 到 .claude/skills/`,
     'cli.init.done': '✅ 完成！',
-    'cli.init.nextStep': '下一步：在你的 AI 工具中執行 /knowy init 來填寫知識文件。',
+    'cli.init.nextStep': '下一步：在你的 AI 工具中執行 /knowie init 來填寫知識文件。',
     'cli.init.selectLanguage': '選擇模板語言：',
     'cli.init.langDetected': (lang) => `  偵測到語言：${lang}`,
 
     'cli.update.title': '更新',
-    'cli.update.noConfig': '找不到 .knowy.json。請先執行 "knowy init"。',
-    'cli.update.badConfig': '無法讀取 .knowy.json。請執行 "knowy init" 重新初始化。',
+    'cli.update.noConfig': '找不到 .knowie.json。請先執行 "knowie init"。',
+    'cli.update.badConfig': '無法讀取 .knowie.json。請執行 "knowie init" 重新初始化。',
     'cli.update.templates': (n) => `  ✓ 已更新 ${n} 個模板`,
     'cli.update.skills': (n) => `  ✓ 已更新 ${n} 個 skills`,
     'cli.update.newTools': (names) => `  偵測到新工具：${names}`,
@@ -141,12 +136,12 @@ const messages = {
     'cli.update.done': '✅ 更新完成。',
 
     'cli.mcp.title': 'MCP 設定',
-    'cli.mcp.selectTools': '哪些工具要使用 Knowy MCP server？',
+    'cli.mcp.selectTools': '哪些工具要使用 Knowie MCP server？',
     'cli.mcp.noSelection': '未選擇任何工具。已取消。',
     'cli.mcp.alreadyConfigured': (name) => `  · ${name}：已設定`,
-    'cli.mcp.added': (name) => `  ✓ ${name}：已加入 Knowy MCP server`,
+    'cli.mcp.added': (name) => `  ✓ ${name}：已加入 Knowie MCP server`,
     'cli.mcp.done': '✅ MCP 設定完成。',
-    'cli.mcp.restart': '   請重啟你的 AI 工具以啟用 Knowy MCP server。',
+    'cli.mcp.restart': '   請重啟你的 AI 工具以啟用 Knowie MCP server。',
 
     'ui.toggle': '切換（例如 1,3,5）或按 Enter 確認：',
 

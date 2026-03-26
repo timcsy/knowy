@@ -1,11 +1,11 @@
 ---
-name: knowy-judge
+name: knowie-judge
 description: Cross-check knowledge files for consistency, coherence, and project alignment
 user-invokable: true
 argument-hint: "[scope: file name, file pair, or event description]"
 ---
 
-# Knowy Judge
+# Knowie Judge
 
 Verify that the three knowledge files (principles, vision, experience) are internally sound, consistent with each other, and aligned with the actual project state.
 
@@ -262,7 +262,7 @@ After the user makes changes based on your suggestions:
 
 ## Guidelines
 
-- **Language**: Read `.knowy.json` → `language` field (e.g., `"zh-TW"`). Use that language for ALL output — section headers, descriptions, suggestions, everything. If `.knowy.json` is missing or has no language field, detect from conversation context or default to English.
+- **Language**: Read `.knowie.json` → `language` field (e.g., `"zh-TW"`). Use that language for ALL output — section headers, descriptions, suggestions, everything. If `.knowie.json` is missing or has no language field, detect from conversation context or default to English.
 - Be specific — always quote relevant text from knowledge files
 - Distinguish between true contradictions (🔴) and tensions worth watching (🟡)
 - Don't flag stylistic differences as inconsistencies

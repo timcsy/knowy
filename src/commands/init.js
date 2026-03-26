@@ -1,6 +1,6 @@
 import { readFile, writeFile, access } from 'node:fs/promises';
 import { join } from 'node:path';
-import { KNOWLEDGE_DIR, KNOWY_CONFIG, VERSION } from '../constants.js';
+import { KNOWLEDGE_DIR, KNOWIE_CONFIG, VERSION } from '../constants.js';
 import { scaffoldKnowledge } from '../scaffold.js';
 import { installTemplates } from '../templates.js';
 import { installSkills } from '../skills.js';
@@ -24,7 +24,7 @@ export async function init(projectRoot) {
   const detectedLang = normalizeLanguage(detectLanguage());
   let lang = detectedLang;
 
-  console.log(`\n🧠 knowy v${VERSION}\n`);
+  console.log(`\n🧠 knowie v${VERSION}\n`);
 
   // 1. Language selection
   const msg = t(lang, 'cli.init.langDetected');
@@ -110,8 +110,8 @@ export async function init(projectRoot) {
   const skills = await installSkills(projectRoot);
   console.log(`\n${t(lang, 'cli.init.skills')(skills.length)}`);
 
-  // 9. Update .knowy.json
-  const configPath = join(projectRoot, KNOWY_CONFIG);
+  // 9. Update .knowie.json
+  const configPath = join(projectRoot, KNOWIE_CONFIG);
   let config;
   try {
     config = JSON.parse(await readFile(configPath, 'utf-8'));

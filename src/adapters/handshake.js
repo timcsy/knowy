@@ -16,7 +16,7 @@ Additional context may be found in \`${KNOWLEDGE_DIR}/research/\`, \`${KNOWLEDGE
 ${MARKER_END}`;
 
 const MDC_SNIPPET = `---
-description: Project knowledge context from Knowy
+description: Project knowledge context from Knowie
 globs:
 alwaysApply: true
 ---
@@ -29,7 +29,7 @@ function buildSnippet(format) {
 }
 
 /**
- * Inject or update the Knowy reference in a tool's config file.
+ * Inject or update the Knowie reference in a tool's config file.
  * Creates the file (and parent dirs) if it doesn't exist.
  */
 export async function injectHandshake(projectRoot, target) {
@@ -66,7 +66,7 @@ export async function injectHandshake(projectRoot, target) {
 }
 
 /**
- * Remove the Knowy reference from a file.
+ * Remove the Knowie reference from a file.
  */
 export async function removeHandshake(projectRoot, target) {
   const filePath = join(projectRoot, target.file);

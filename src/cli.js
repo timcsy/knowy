@@ -3,10 +3,10 @@ import { resolveLanguage, detectLanguage, normalizeLanguage, t } from './i18n.js
 
 function buildHelp(lang) {
   return `
-knowy v${VERSION} — ${t(lang, 'cli.help.tagline')}
+knowie v${VERSION} — ${t(lang, 'cli.help.tagline')}
 
 ${t(lang, 'cli.help.usage')}:
-  knowy <command>
+  knowie <command>
 
 ${t(lang, 'cli.help.commands')}:
   init        ${t(lang, 'cli.help.init')}

@@ -1,12 +1,11 @@
 {
-  "name": "knowy-cli",
-  "version": "0.1.5",
+  "name": "knowie",
+  "version": "0.2.0",
   "description": "Give your AI a structured project brain",
   "type": "module",
   "bin": {
-    "knowy-cli": "./bin/knowy.js",
-    "knowy": "./bin/knowy.js",
-    "knowy-mcp": "./bin/knowy-mcp.js"
+    "knowie": "./bin/knowie.js",
+    "knowie-mcp": "./bin/knowie-mcp.js"
   },
   "files": [
     "bin/",
@@ -31,6 +30,6 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/timcsy/knowy"
+    "url": "https://github.com/timcsy/knowie"
   }
 }

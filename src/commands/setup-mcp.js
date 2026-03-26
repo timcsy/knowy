@@ -31,7 +31,7 @@ const MCP_TARGETS = [
 
 const MCP_ENTRY = {
   command: 'npx',
-  args: ['-y', 'knowy-cli', '--', 'knowy-mcp'],
+  args: ['-y', 'knowie', '--', 'knowie-mcp'],
 };
 
 async function readJsonSafe(path) {
@@ -45,7 +45,7 @@ async function readJsonSafe(path) {
 export async function setupMcp(projectRoot = process.cwd()) {
   const lang = await resolveLanguage(projectRoot);
 
-  console.log(`\n🧠 knowy v${VERSION} — ${t(lang, 'cli.mcp.title')}\n`);
+  console.log(`\n🧠 knowie v${VERSION} — ${t(lang, 'cli.mcp.title')}\n`);
 
   const choices = MCP_TARGETS.map(t => ({
     id: t.id,
@@ -72,12 +72,12 @@ export async function setupMcp(projectRoot = process.cwd()) {
 
     if (!config.mcpServers) config.mcpServers = {};
 
-    if (config.mcpServers.knowy) {
+    if (config.mcpServers.knowie) {
       console.log(t(lang, 'cli.mcp.alreadyConfigured')(target.name));
       continue;
     }
 
-    config.mcpServers.knowy = MCP_ENTRY;
+    config.mcpServers.knowie = MCP_ENTRY;
     await writeFile(configPath, JSON.stringify(config, null, 2) + '\n');
     console.log(t(lang, 'cli.mcp.added')(target.name));
   }

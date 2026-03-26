@@ -1,7 +1,7 @@
 import { mkdir, copyFile, writeFile, access } from 'node:fs/promises';
 import { join } from 'node:path';
 import {
-  KNOWLEDGE_DIR, KNOWY_CONFIG, CORE_FILES, SUBDIRS,
+  KNOWLEDGE_DIR, KNOWIE_CONFIG, CORE_FILES, SUBDIRS,
   PACKAGE_ROOT, VERSION, TEMPLATES_DIR
 } from './constants.js';
 
@@ -57,10 +57,10 @@ export async function scaffoldKnowledge(projectRoot, language = 'en') {
     }
   }
 
-  // Create .knowy.json
-  const configPath = join(projectRoot, KNOWY_CONFIG);
+  // Create .knowie.json
+  const configPath = join(projectRoot, KNOWIE_CONFIG);
   if (await exists(configPath)) {
-    report.skipped.push(KNOWY_CONFIG);
+    report.skipped.push(KNOWIE_CONFIG);
   } else {
     await writeFile(configPath, JSON.stringify({
       version: VERSION,
@@ -68,7 +68,7 @@ export async function scaffoldKnowledge(projectRoot, language = 'en') {
       createdAt: new Date().toISOString(),
       tools: []
     }, null, 2) + '\n');
-    report.created.push(KNOWY_CONFIG);
+    report.created.push(KNOWIE_CONFIG);
   }
 
   return report;

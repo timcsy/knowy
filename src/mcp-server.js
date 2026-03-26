@@ -7,7 +7,7 @@ const PROTOCOL_VERSION = '2025-03-26';
 
 const TOOLS = [
   {
-    name: 'knowy_init',
+    name: 'knowie_init',
     description: 'Scaffold .knowledge/ structure, detect AI tools, inject references, and install skills. Returns a report of what was created.',
     inputSchema: {
       type: 'object',
@@ -25,8 +25,8 @@ const TOOLS = [
     },
   },
   {
-    name: 'knowy_update',
-    description: 'Update Knowy skills and templates (managed files), re-detect tools, and refresh handshakes. Never overwrites knowledge files.',
+    name: 'knowie_update',
+    description: 'Update Knowie skills and templates (managed files), re-detect tools, and refresh handshakes. Never overwrites knowledge files.',
     inputSchema: {
       type: 'object',
       properties: {
@@ -38,7 +38,7 @@ const TOOLS = [
     },
   },
   {
-    name: 'knowy_judge',
+    name: 'knowie_judge',
     description: 'Cross-check .knowledge/ files for consistency and coherence. Returns a structured health check report with traffic-light indicators.',
     inputSchema: {
       type: 'object',
@@ -55,7 +55,7 @@ const TOOLS = [
     },
   },
   {
-    name: 'knowy_next',
+    name: 'knowie_next',
     description: 'Suggest what to work on next based on .knowledge/ files. Returns a feature brief grounded in principles, vision, and experience.',
     inputSchema: {
       type: 'object',
@@ -75,7 +75,7 @@ const TOOLS = [
 
 // ── Tool Handlers ──────────────────────────────────────────────────
 
-async function handleKnowyInit(args) {
+async function handleKnowieInit(args) {
   const projectPath = args.project_path || process.cwd();
   const { scaffoldKnowledge } = await import('./scaffold.js');
   const { installTemplates } = await import('./templates.js');
@@ -85,7 +85,7 @@ async function handleKnowyInit(args) {
   const { injectHandshake } = await import('./adapters/handshake.js');
   const { readFile, writeFile } = await import('node:fs/promises');
   const { join } = await import('node:path');
-  const { KNOWY_CONFIG } = await import('./constants.js');
+  const { KNOWIE_CONFIG } = await import('./constants.js');
   const { resolveLanguage } = await import('./i18n.js');
 
   const lang = await resolveLanguage(projectPath);
@@ -124,7 +124,7 @@ async function handleKnowyInit(args) {
   report.push(`✓ Installed ${skills.length} skills`);
 
   // Update config
-  const configPath = join(projectPath, KNOWY_CONFIG);
+  const configPath = join(projectPath, KNOWIE_CONFIG);
   let config;
   try {
     config = JSON.parse(await readFile(configPath, 'utf-8'));
@@ -138,12 +138,12 @@ async function handleKnowyInit(args) {
   await writeFile(configPath, JSON.stringify(config, null, 2) + '\n');
 
   report.push('');
-  report.push('Done! Run /knowy init in your AI tool to populate knowledge files.');
+  report.push('Done! Run /knowie init in your AI tool to populate knowledge files.');
 
   return report.join('\n');
 }
 
-async function handleKnowyUpdate(args) {
+async function handleKnowieUpdate(args) {
   const projectPath = args.project_path || process.cwd();
   const { installTemplates } = await import('./templates.js');
   const { installSkills } = await import('./skills.js');
@@ -152,14 +152,14 @@ async function handleKnowyUpdate(args) {
   const { injectHandshake } = await import('./adapters/handshake.js');
   const { readFile, writeFile, access } = await import('node:fs/promises');
   const { join } = await import('node:path');
-  const { KNOWY_CONFIG } = await import('./constants.js');
+  const { KNOWIE_CONFIG } = await import('./constants.js');
 
-  const configPath = join(projectPath, KNOWY_CONFIG);
+  const configPath = join(projectPath, KNOWIE_CONFIG);
   let config;
   try {
     config = JSON.parse(await readFile(configPath, 'utf-8'));
   } catch {
-    return 'Error: .knowy.json not found. Run knowy_init first.';
+    return 'Error: .knowie.json not found. Run knowie_init first.';
   }
 
   const report = [];
@@ -207,7 +207,7 @@ async function handleKnowyUpdate(args) {
   return report.join('\n');
 }
 
-async function handleKnowyJudge(args) {
+async function handleKnowieJudge(args) {
   const projectPath = args.project_path || process.cwd();
   const { readFile } = await import('node:fs/promises');
   const { join } = await import('node:path');
@@ -225,13 +225,13 @@ async function handleKnowyJudge(args) {
 
   const missing = Object.entries(files).filter(([, v]) => v === null).map(([k]) => k);
   if (missing.length > 0) {
-    return `Cannot run judge — missing files: ${missing.join(', ')}\nRun knowy_init first.`;
+    return `Cannot run judge — missing files: ${missing.join(', ')}\nRun knowie_init first.`;
   }
 
   // Return files content for AI to analyze
   const scope = args.scope || 'full';
   const lines = [
-    `## Knowy Judge — Scope: ${scope}`,
+    `## Knowie Judge — Scope: ${scope}`,
     '',
     'Below are the current knowledge files. Please perform the cross-check analysis.',
     '',
@@ -279,7 +279,7 @@ async function handleKnowyJudge(args) {
   return lines.join('\n');
 }
 
-async function handleKnowyNext(args) {
+async function handleKnowieNext(args) {
   const projectPath = args.project_path || process.cwd();
   const { readFile, readdir } = await import('node:fs/promises');
   const { join } = await import('node:path');
@@ -297,7 +297,7 @@ async function handleKnowyNext(args) {
 
   const missing = Object.entries(files).filter(([, v]) => v === null).map(([k]) => k);
   if (missing.length > 0) {
-    return `Cannot plan next step — missing files: ${missing.join(', ')}\nRun knowy_init first.`;
+    return `Cannot plan next step — missing files: ${missing.join(', ')}\nRun knowie_init first.`;
   }
 
   // Scan for spec tools
@@ -312,7 +312,7 @@ async function handleKnowyNext(args) {
 
   const direction = args.direction || '';
   const lines = [
-    `## Knowy Next${direction ? ` — Direction: ${direction}` : ''}`,
+    `## Knowie Next${direction ? ` — Direction: ${direction}` : ''}`,
     '',
     'Below are the current knowledge files. Help the user plan their next step.',
     '',
@@ -382,7 +382,7 @@ async function handleMessage(msg) {
       return makeResponse(id, {
         protocolVersion: PROTOCOL_VERSION,
         capabilities: { tools: {} },
-        serverInfo: { name: 'knowy', version: VERSION },
+        serverInfo: { name: 'knowie', version: VERSION },
       });
 
     case 'ping':
@@ -398,17 +398,17 @@ async function handleMessage(msg) {
       try {
         let result;
         switch (toolName) {
-          case 'knowy_init':
-            result = await handleKnowyInit(args);
+          case 'knowie_init':
+            result = await handleKnowieInit(args);
             break;
-          case 'knowy_update':
-            result = await handleKnowyUpdate(args);
+          case 'knowie_update':
+            result = await handleKnowieUpdate(args);
             break;
-          case 'knowy_judge':
-            result = await handleKnowyJudge(args);
+          case 'knowie_judge':
+            result = await handleKnowieJudge(args);
             break;
-          case 'knowy_next':
-            result = await handleKnowyNext(args);
+          case 'knowie_next':
+            result = await handleKnowieNext(args);
             break;
           default:
             return makeError(id, -32602, `Unknown tool: ${toolName}`);
@@ -467,5 +467,5 @@ export async function startMcpServer() {
     process.exit(0);
   });
 
-  process.stderr.write(`knowy MCP server v${VERSION} started\n`);
+  process.stderr.write(`knowie MCP server v${VERSION} started\n`);
 }

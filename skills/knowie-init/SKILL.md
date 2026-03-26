@@ -1,11 +1,11 @@
 ---
-name: knowy-init
+name: knowie-init
 description: AI-guided creation of project knowledge files (.knowledge/)
 user-invokable: true
 argument-hint: "[topic or file to focus on]"
 ---
 
-# Knowy Init
+# Knowie Init
 
 Help the user create or populate their project knowledge files through layered, progressive conversation.
 
@@ -125,7 +125,7 @@ If you find issues, revise the draft or flag them to the user.
 
 ## Guidelines
 
-- **Language**: Read `.knowy.json` → `language` field (e.g., `"zh-TW"`). Use that language for ALL output — questions, drafts, suggestions, everything. If `.knowy.json` is missing or has no language field, detect from conversation context or default to English.
+- **Language**: Read `.knowie.json` → `language` field (e.g., `"zh-TW"`). Use that language for ALL output — questions, drafts, suggestions, everything. If `.knowie.json` is missing or has no language field, detect from conversation context or default to English.
 - **Layer your questions** — don't dump all questions at once. Ask 2-3, listen, then go deeper.
 - Keep language practical and clear — avoid academic jargon
 - Reference existing content in other knowledge files when relevant

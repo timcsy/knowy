@@ -1,6 +1,6 @@
 import { readFile, writeFile, access } from 'node:fs/promises';
 import { join } from 'node:path';
-import { KNOWY_CONFIG, VERSION } from '../constants.js';
+import { KNOWIE_CONFIG, VERSION } from '../constants.js';
 import { installTemplates } from '../templates.js';
 import { installSkills } from '../skills.js';
 import { detectTools } from '../adapters/detect.js';
@@ -16,10 +16,10 @@ async function exists(p) {
 export async function update(projectRoot) {
   const lang = await resolveLanguage(projectRoot);
 
-  console.log(`\n🧠 knowy v${VERSION} — ${t(lang, 'cli.update.title')}\n`);
+  console.log(`\n🧠 knowie v${VERSION} — ${t(lang, 'cli.update.title')}\n`);
 
-  // 1. Check .knowy.json exists
-  const configPath = join(projectRoot, KNOWY_CONFIG);
+  // 1. Check .knowie.json exists
+  const configPath = join(projectRoot, KNOWIE_CONFIG);
   if (!await exists(configPath)) {
     console.log(t(lang, 'cli.update.noConfig'));
     return;
@@ -80,7 +80,7 @@ export async function update(projectRoot) {
   }
   console.log(t(lang, 'cli.update.refreshed')(writtenFiles.size));
 
-  // 7. Update .knowy.json
+  // 7. Update .knowie.json
   config.version = VERSION;
   config.tools = [...existingTools];
   config.updatedAt = new Date().toISOString();
