@@ -1,7 +1,7 @@
 ---
 name: knowie-judge
 description: Cross-check knowledge files for consistency, coherence, and project alignment
-user-invokable: true
+user-invocable: true
 argument-hint: "[scope: file name, file pair, or event description]"
 ---
 

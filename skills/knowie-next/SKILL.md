@@ -1,7 +1,7 @@
 ---
 name: knowie-next
 description: Plan the next step based on project knowledge
-user-invokable: true
+user-invocable: true
 argument-hint: "[direction or feature area to explore]"
 ---
 

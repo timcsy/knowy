@@ -138,7 +138,7 @@ async function handleKnowieInit(args) {
   await writeFile(configPath, JSON.stringify(config, null, 2) + '\n');
 
   report.push('');
-  report.push('Done! Run /knowie init in your AI tool to populate knowledge files.');
+  report.push('Done! Run /knowie-init in your AI tool to populate knowledge files.');
 
   return report.join('\n');
 }

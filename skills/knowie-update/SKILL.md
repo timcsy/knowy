@@ -1,7 +1,7 @@
 ---
 name: knowie-update
 description: Check knowledge file structure completeness and suggest improvements
-user-invokable: true
+user-invocable: true
 argument-hint: "[specific file or area to check]"
 ---
 

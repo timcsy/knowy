@@ -91,12 +91,12 @@ These commands run **inside your AI chat** (not in the terminal). For AI tools w
 
 | Skill | What it does |
 |-------|-------------|
-| `/knowie init` | Guided conversation to draft your knowledge files |
-| `/knowie update` | Check structure and suggest improvements |
-| `/knowie judge` | 17-point health check: consistency, coherence, code alignment |
-| `/knowie next` | Plan next step, grounded in principles and experience |
+| `/knowie-init` | Guided conversation to draft your knowledge files |
+| `/knowie-update` | Check structure and suggest improvements |
+| `/knowie-judge` | 17-point health check: consistency, coherence, code alignment |
+| `/knowie-next` | Plan next step, grounded in principles and experience |
 
-`/knowie judge` is the core feedback loop. It catches when your vision contradicts your experience, your principles don't match your code, or your files have gone stale. Results: 🟢 healthy, 🟡 worth watching, 🔴 needs action — with specific quotes and suggestions.
+`/knowie-judge` is the core feedback loop. It catches when your vision contradicts your experience, your principles don't match your code, or your files have gone stale. Results: 🟢 healthy, 🟡 worth watching, 🔴 needs action — with specific quotes and suggestions.
 
 ## Already Using a Spec Tool?
 
@@ -108,7 +108,7 @@ Knowie (why)  →  Spec tool (what)  →  Code (how)
 
 Spec tools generate requirements and designs. Knowie gives them context — your principles, roadmap, and lessons. Without Knowie, specs are written in a vacuum.
 
-Knowie detects installed spec tools (Speckit, OpenSpec, Kiro Specs) and suggests handoff after `/knowie next`.
+Knowie detects installed spec tools (Speckit, OpenSpec, Kiro Specs) and suggests handoff after `/knowie-next`.
 
 ## Supported Tools
 
@@ -167,7 +167,7 @@ Every decision has three parts: what's *correct* (principles), what you're *buil
 - Vision without experience → plans that repeat mistakes
 - Experience without principles → lessons with no framework
 
-`/knowie judge` keeps them aligned. `/knowie next` uses all three to plan.
+`/knowie-judge` keeps them aligned. `/knowie-next` uses all three to plan.
 
 <details>
 <summary>Theory</summary>

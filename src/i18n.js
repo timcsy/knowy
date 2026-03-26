@@ -71,7 +71,7 @@ const messages = {
     'cli.init.handshake.appended': (file, tool) => `  ✓ Added to ${file} (${tool})`,
     'cli.init.skills': (n) => `  ✓ Installed ${n} skills to .claude/skills/`,
     'cli.init.done': '✅ Done!',
-    'cli.init.nextStep': 'Next step: run /knowie init in your AI tool to populate your knowledge files.',
+    'cli.init.nextStep': 'Next step: run /knowie-init in your AI tool to populate your knowledge files.',
     'cli.init.selectLanguage': 'Select language for templates:',
     'cli.init.langDetected': (lang) => `  Detected language: ${lang}`,
 
@@ -123,7 +123,7 @@ const messages = {
     'cli.init.handshake.appended': (file, tool) => `  ✓ 已加入 ${file}（${tool}）`,
     'cli.init.skills': (n) => `  ✓ 已安裝 ${n} 個 skills 到 .claude/skills/`,
     'cli.init.done': '✅ 完成！',
-    'cli.init.nextStep': '下一步：在你的 AI 工具中執行 /knowie init 來填寫知識文件。',
+    'cli.init.nextStep': '下一步：在你的 AI 工具中執行 /knowie-init 來填寫知識文件。',
     'cli.init.selectLanguage': '選擇模板語言：',
     'cli.init.langDetected': (lang) => `  偵測到語言：${lang}`,
 

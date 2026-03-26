@@ -1,7 +1,7 @@
 ---
 name: knowie-init
 description: AI-guided creation of project knowledge files (knowledge/)
-user-invokable: true
+user-invocable: true
 argument-hint: "[topic or file to focus on]"
 ---
 

@@ -91,12 +91,12 @@ Knowie 可以安全地加到任何專案：
 
 | Skill | 做什麼 |
 |-------|--------|
-| `/knowie init` | 引導式對話，幫你起草知識文件 |
-| `/knowie update` | 檢查結構，建議改進 |
-| `/knowie judge` | 17 項健康檢查：一致性、連貫性、程式碼對齊 |
-| `/knowie next` | 以原則為根基、以經驗為指引，規劃下一步 |
+| `/knowie-init` | 引導式對話，幫你起草知識文件 |
+| `/knowie-update` | 檢查結構，建議改進 |
+| `/knowie-judge` | 17 項健康檢查：一致性、連貫性、程式碼對齊 |
+| `/knowie-next` | 以原則為根基、以經驗為指引，規劃下一步 |
 
-`/knowie judge` 是核心回饋循環。它會抓到願景和經驗矛盾、原則和程式碼不符、或文件已經過時的問題。結果：🟢 健康、🟡 值得注意、🔴 需要處理——附具體引用和建議。
+`/knowie-judge` 是核心回饋循環。它會抓到願景和經驗矛盾、原則和程式碼不符、或文件已經過時的問題。結果：🟢 健康、🟡 值得注意、🔴 需要處理——附具體引用和建議。
 
 ## 已經在用規格工具？
 
@@ -108,7 +108,7 @@ Knowie（為什麼）→  規格工具（做什麼） →  程式碼（怎麼做
 
 規格工具產出需求和設計。Knowie 給它脈絡——你的原則、路線圖和教訓。沒有 Knowie，規格在真空中產出。
 
-`/knowie next` 完成後會偵測已安裝的規格工具（Speckit、OpenSpec、Kiro Specs）並建議接手。
+`/knowie-next` 完成後會偵測已安裝的規格工具（Speckit、OpenSpec、Kiro Specs）並建議接手。
 
 ## 支援的工具
 
@@ -167,7 +167,7 @@ npx knowie update
 - 有願景沒經驗 → 重蹈覆轍的計畫
 - 有經驗沒原則 → 教訓一堆，不知道怎麼用
 
-`/knowie judge` 保持對齊。`/knowie next` 用三者規劃下一步。
+`/knowie-judge` 保持對齊。`/knowie-next` 用三者規劃下一步。
 
 <details>
 <summary>理論</summary>
