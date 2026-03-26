@@ -138,11 +138,15 @@ Or manually:
 
 ## Updating
 
+When a new version of Knowie is released:
+
 ```bash
 npx knowie update
 ```
 
-Updates skills and templates. Never touches your knowledge files. Add `--yes` for automatic mode.
+This updates skills and templates to the latest version. **Your knowledge files are never modified** — only managed files (skills, templates) are updated. It also detects any new AI tools you've added since last time.
+
+> Re-running `npx knowie init` is also safe — it does the same thing and skips existing files.
 
 ## Design
 

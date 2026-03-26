@@ -138,11 +138,15 @@ npx knowie setup-mcp
 
 ## 更新
 
+當 Knowie 有新版本時：
+
 ```bash
 npx knowie update
 ```
 
-更新 skills 和模板。永不動你的知識文件。加 `--yes` 全自動。
+這會把 skills 和模板更新到最新版。**你的知識文件永遠不會被修改**——只有受管理的檔案（skills、模板）會更新。也會偵測你之後新增的 AI 工具。
+
+> 重新跑 `npx knowie init` 也是安全的——效果一樣，會跳過已存在的檔案。
 
 ## 設計
 
