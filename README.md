@@ -44,13 +44,15 @@ That's it. Knowie creates the files, detects your AI tools, and connects everyth
 
 **Beginner example** — "Add user login":
 
-*Before:* AI generates OAuth2 + JWT + refresh tokens with three services.
-*After:* AI reads your principles ("keep it simple — learning project") and vision ("single-user, no registration"). Adds a simple password check. 5 minutes, not 5 hours.
+> *Before:* AI generates OAuth2 + JWT + refresh tokens with three services.
+>
+> *After:* AI reads your principles ("keep it simple — learning project") and vision ("single-user, no registration"). Adds a simple password check. 5 minutes, not 5 hours.
 
 **Senior example** — "Add caching":
 
-*Before:* AI picks Redis (popular online). But your principle says "no external dependencies for core," and experience.md records that caching caused stale data last quarter.
-*After:* AI picks in-memory caching, adds TTL from the stale-data lesson, links to the design doc in `knowledge/design/`.
+> *Before:* AI picks Redis (popular online). But your principle says "no external dependencies for core," and experience.md records that caching caused stale data last quarter.
+>
+> *After:* AI picks in-memory caching, adds TTL from the stale-data lesson, links to the design doc in `knowledge/design/`.
 
 ## Adding to an Existing Project
 
