@@ -20,7 +20,7 @@ export async function scaffoldKnowledge(projectRoot, language = 'en') {
   const knowledgeDir = join(projectRoot, KNOWLEDGE_DIR);
   const report = { created: [], skipped: [] };
 
-  // Create .knowledge/ and subdirectories
+  // Create knowledge/ and subdirectories
   await mkdir(knowledgeDir, { recursive: true });
   for (const sub of SUBDIRS) {
     await mkdir(join(knowledgeDir, sub), { recursive: true });

@@ -27,9 +27,9 @@ $ARGUMENTS
 
 ### 1. Read current state
 
-- Read `.knowledge/principles.md`, `.knowledge/vision.md`, `.knowledge/experience.md`
-- Read `.knowledge/.templates/` for the latest recommended structure
-- Scan `.knowledge/research/`, `.knowledge/design/`, `.knowledge/history/` for existing files
+- Read `knowledge/principles.md`, `knowledge/vision.md`, `knowledge/experience.md`
+- Read `knowledge/.templates/` for the latest recommended structure
+- Scan `knowledge/research/`, `knowledge/design/`, `knowledge/history/` for existing files
 - Read project structure and recent git log for context
 
 ### 2. Structural check
@@ -134,7 +134,7 @@ If the user agrees, proceed step by step (one file at a time, show diff, wait fo
 
 ## Guidelines
 
-- **Language**: Read `.knowledge/.knowie.json` → `language` field (e.g., `"zh-TW"`). Use that language for ALL output — section headers, descriptions, suggestions, everything. If `.knowledge/.knowie.json` is missing or has no language field, detect from conversation context or default to English.
+- **Language**: Read `knowledge/.knowie.json` → `language` field (e.g., `"zh-TW"`). Use that language for ALL output — section headers, descriptions, suggestions, everything. If `knowledge/.knowie.json` is missing or has no language field, detect from conversation context or default to English.
 - Be constructive, not critical — the goal is to help, not to grade
 - Prioritize by impact: what would help the AI (and the team) most?
 - Don't suggest adding content the user may not have yet — only structural improvements

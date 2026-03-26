@@ -8,7 +8,7 @@ const PROTOCOL_VERSION = '2025-03-26';
 const TOOLS = [
   {
     name: 'knowie_init',
-    description: 'Scaffold .knowledge/ structure, detect AI tools, inject references, and install skills. Returns a report of what was created.',
+    description: 'Scaffold knowledge/ structure, detect AI tools, inject references, and install skills. Returns a report of what was created.',
     inputSchema: {
       type: 'object',
       properties: {
@@ -39,7 +39,7 @@ const TOOLS = [
   },
   {
     name: 'knowie_judge',
-    description: 'Cross-check .knowledge/ files for consistency and coherence. Returns a structured health check report with traffic-light indicators.',
+    description: 'Cross-check knowledge/ files for consistency and coherence. Returns a structured health check report with traffic-light indicators.',
     inputSchema: {
       type: 'object',
       properties: {
@@ -56,7 +56,7 @@ const TOOLS = [
   },
   {
     name: 'knowie_next',
-    description: 'Suggest what to work on next based on .knowledge/ files. Returns a feature brief grounded in principles, vision, and experience.',
+    description: 'Suggest what to work on next based on knowledge/ files. Returns a feature brief grounded in principles, vision, and experience.',
     inputSchema: {
       type: 'object',
       properties: {

@@ -14,7 +14,7 @@ Knowie 為你的專案建立三份結構化的知識文件，讓任何 AI 工具
 npx knowie init
 ```
 
-這會在你的專案中建立 `.knowledge/` 目錄並連結你的 AI 工具。接著，在你的 AI 工具中（例如 Claude Code）：
+這會在你的專案中建立 `knowledge/` 目錄並連結你的 AI 工具。接著，在你的 AI 工具中（例如 Claude Code）：
 
 ```
 /knowie init
@@ -25,7 +25,7 @@ npx knowie init
 ## 建立的結構
 
 ```
-.knowledge/
+knowledge/
   principles.md         ← 核心信念和規則（很少變動）
   vision.md             ← 目標、架構、路線圖（持續演進）
   experience.md         ← 蒸餾出的教訓（逐漸成長）
@@ -79,7 +79,7 @@ Knowie 偵測並連結 25+ 種 AI 和規格工具：
 | **規格工具** | Speckit、OpenSpec、Kiro Specs |
 | **標準** | AGENTS.md（跨工具標準） |
 
-`knowie init` 自動偵測你安裝了哪些工具，並注入指向 `.knowledge/` 的引用。`knowie update` 會補上之後新增的工具。
+`knowie init` 自動偵測你安裝了哪些工具，並注入指向 `knowledge/` 的引用。`knowie update` 會補上之後新增的工具。
 
 ## MCP Server
 
@@ -116,7 +116,7 @@ npx knowie update
 
 ## 設計原則
 
-- **工具無關**：`.knowledge/` 是純 Markdown——任何工具都能用，或不用工具也行。
+- **工具無關**：`knowledge/` 是純 Markdown——任何工具都能用，或不用工具也行。
 - **零依賴**：不需要 runtime，不需要 server。三份 Markdown 文件和幾個 skills。
 - **不鎖定**：Knowie 不擁有你的工作流程。它連結到你現有的工具，而不是反過來。
 - **漸進採用**：只用文件，或加上 skills，或兩者都用。
@@ -131,7 +131,7 @@ npx knowie update
 
 這三個視角不可分割——每一個都只有在與另外兩個的關係中才有意義。`/knowie judge` 驗證它們是否仍然對齊，`/knowie next` 利用三者來規劃連貫的下一步。
 
-這個框架源自[三視角主義（triperspectivalism）](https://en.wikipedia.org/wiki/Triperspectivalism)和型別論中的判斷（Γ ⊢ t : A）。如果你有興趣，Knowie 設計背後的研究文件在專案的 `.knowledge/research/` 目錄中。
+這個框架源自[三視角主義（triperspectivalism）](https://en.wikipedia.org/wiki/Triperspectivalism)和型別論中的判斷（Γ ⊢ t : A）。如果你有興趣，Knowie 設計背後的研究文件在專案的 `knowledge/research/` 目錄中。
 
 ## 授權
 

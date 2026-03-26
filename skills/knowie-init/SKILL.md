@@ -1,6 +1,6 @@
 ---
 name: knowie-init
-description: AI-guided creation of project knowledge files (.knowledge/)
+description: AI-guided creation of project knowledge files (knowledge/)
 user-invokable: true
 argument-hint: "[topic or file to focus on]"
 ---
@@ -27,8 +27,8 @@ $ARGUMENTS
 
 ### 1. Read current state
 
-- Read `.knowledge/principles.md`, `.knowledge/vision.md`, `.knowledge/experience.md`
-- Read `.knowledge/.templates/` to understand suggested structure
+- Read `knowledge/principles.md`, `knowledge/vision.md`, `knowledge/experience.md`
+- Read `knowledge/.templates/` to understand suggested structure
 - Read project structure, package.json/Cargo.toml/etc. to understand the tech context
 - Identify which files are empty or still contain only template comments
 
@@ -125,7 +125,7 @@ If you find issues, revise the draft or flag them to the user.
 
 ## Guidelines
 
-- **Language**: Read `.knowledge/.knowie.json` → `language` field (e.g., `"zh-TW"`). Use that language for ALL output — questions, drafts, suggestions, everything. If `.knowledge/.knowie.json` is missing or has no language field, detect from conversation context or default to English.
+- **Language**: Read `knowledge/.knowie.json` → `language` field (e.g., `"zh-TW"`). Use that language for ALL output — questions, drafts, suggestions, everything. If `knowledge/.knowie.json` is missing or has no language field, detect from conversation context or default to English.
 - **Layer your questions** — don't dump all questions at once. Ask 2-3, listen, then go deeper.
 - Keep language practical and clear — avoid academic jargon
 - Reference existing content in other knowledge files when relevant

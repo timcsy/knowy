@@ -36,7 +36,7 @@ export async function init(projectRoot) {
   }));
   lang = await select(t(lang, 'cli.init.selectLanguage'), langChoices);
 
-  // 2. Check if .knowledge/ already exists
+  // 2. Check if knowledge/ already exists
   const knowledgeExists = await exists(join(projectRoot, KNOWLEDGE_DIR));
   if (knowledgeExists) {
     console.log(t(lang, 'cli.init.exists'));
@@ -47,7 +47,7 @@ export async function init(projectRoot) {
     }
   }
 
-  // 3. Scaffold .knowledge/
+  // 3. Scaffold knowledge/
   console.log('');
   const scaffoldReport = await scaffoldKnowledge(projectRoot, lang);
   for (const f of scaffoldReport.created) console.log(t(lang, 'cli.init.created')(f));

@@ -14,7 +14,7 @@ Knowie gives your project three structured knowledge files that any AI tool can 
 npx knowie init
 ```
 
-This creates a `.knowledge/` directory in your project and connects it to your AI tools. Then, in your AI tool (e.g., Claude Code):
+This creates a `knowledge/` directory in your project and connects it to your AI tools. Then, in your AI tool (e.g., Claude Code):
 
 ```
 /knowie init
@@ -25,7 +25,7 @@ This starts an interactive conversation to help you fill in your knowledge files
 ## What It Creates
 
 ```
-.knowledge/
+knowledge/
   principles.md         ← Core beliefs and rules (rarely changes)
   vision.md             ← Goals, architecture, roadmap (evolves)
   experience.md         ← Distilled lessons (grows over time)
@@ -79,7 +79,7 @@ Knowie detects and connects to 25+ AI and spec tools:
 | **Spec Tools** | Speckit, OpenSpec, Kiro Specs |
 | **Standard** | AGENTS.md (cross-tool standard) |
 
-`knowie init` auto-detects which tools you have and injects a reference to your `.knowledge/` files. `knowie update` catches tools added later.
+`knowie init` auto-detects which tools you have and injects a reference to your `knowledge/` files. `knowie update` catches tools added later.
 
 ## MCP Server
 
@@ -116,7 +116,7 @@ This updates skills and templates (managed files) without touching your knowledg
 
 ## Design Principles
 
-- **Tool-agnostic**: `.knowledge/` is plain Markdown — works with any tool, or none.
+- **Tool-agnostic**: `knowledge/` is plain Markdown — works with any tool, or none.
 - **Zero dependencies**: No runtime, no server. Three Markdown files and a few skills.
 - **No lock-in**: Knowie doesn't own your workflow. It connects to your existing tools, not the other way around.
 - **Progressive adoption**: Use just the files, or add the skills, or both.
@@ -131,7 +131,7 @@ The three-file structure isn't arbitrary. It maps to the structure of a *judgmen
 
 These three perspectives are inseparable — each one only makes sense in relation to the other two. `/knowie judge` verifies that they're still in alignment, and `/knowie next` uses all three to plan coherent next steps.
 
-This framework draws from [triperspectivalism](https://en.wikipedia.org/wiki/Triperspectivalism) and type-theoretic judgments (Γ ⊢ t : A). If you're curious, the research papers behind Knowie's design are in the project's `.knowledge/research/` directory.
+This framework draws from [triperspectivalism](https://en.wikipedia.org/wiki/Triperspectivalism) and type-theoretic judgments (Γ ⊢ t : A). If you're curious, the research papers behind Knowie's design are in the project's `knowledge/research/` directory.
 
 ## License
 

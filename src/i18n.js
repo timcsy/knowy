@@ -56,12 +56,12 @@ export function normalizeLanguage(locale) {
 
 const messages = {
   en: {
-    'cli.init.exists': '.knowledge/ already exists.',
+    'cli.init.exists': 'knowledge/ already exists.',
     'cli.init.continue': 'Continue? (Knowledge files will not be overwritten)',
     'cli.init.aborted': 'Aborted.',
     'cli.init.created': (f) => `  ✓ Created ${f}`,
     'cli.init.skipped': (f) => `  · Skipped ${f} (already exists)`,
-    'cli.init.templates': (n) => `  ✓ Installed ${n} templates to .knowledge/.templates/`,
+    'cli.init.templates': (n) => `  ✓ Installed ${n} templates to knowledge/.templates/`,
     'cli.init.detected': (names) => `  Detected: ${names}`,
     'cli.init.selectTools': 'Select tools to connect:',
     'cli.init.selectHint': '  Enter numbers to toggle, then press Enter to confirm.',
@@ -98,7 +98,7 @@ const messages = {
     'cli.help.usage': 'Usage',
     'cli.help.commands': 'Commands',
     'cli.help.options': 'Options',
-    'cli.help.init': 'Scaffold .knowledge/ structure and connect AI tools',
+    'cli.help.init': 'Scaffold knowledge/ structure and connect AI tools',
     'cli.help.update': 'Update skills, templates, and tool connections',
     'cli.help.setupMcp': 'Configure MCP server for your AI tool',
     'cli.help.help': 'Show this help message',
@@ -107,12 +107,12 @@ const messages = {
   },
 
   'zh-TW': {
-    'cli.init.exists': '.knowledge/ 已存在。',
+    'cli.init.exists': 'knowledge/ 已存在。',
     'cli.init.continue': '繼續？（知識文件不會被覆蓋）',
     'cli.init.aborted': '已取消。',
     'cli.init.created': (f) => `  ✓ 已建立 ${f}`,
     'cli.init.skipped': (f) => `  · 已跳過 ${f}（已存在）`,
-    'cli.init.templates': (n) => `  ✓ 已安裝 ${n} 個模板到 .knowledge/.templates/`,
+    'cli.init.templates': (n) => `  ✓ 已安裝 ${n} 個模板到 knowledge/.templates/`,
     'cli.init.detected': (names) => `  偵測到：${names}`,
     'cli.init.selectTools': '選擇要連結的工具：',
     'cli.init.selectHint': '  輸入編號切換選擇，按 Enter 確認。',
@@ -149,7 +149,7 @@ const messages = {
     'cli.help.usage': '用法',
     'cli.help.commands': '指令',
     'cli.help.options': '選項',
-    'cli.help.init': '建立 .knowledge/ 結構並連結 AI 工具',
+    'cli.help.init': '建立 knowledge/ 結構並連結 AI 工具',
     'cli.help.update': '更新 skills、模板和工具連結',
     'cli.help.setupMcp': '為你的 AI 工具設定 MCP server',
     'cli.help.help': '顯示此說明',

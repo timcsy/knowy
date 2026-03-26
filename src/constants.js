@@ -8,8 +8,8 @@ const pkg = JSON.parse(readFileSync(join(__dirname, '..', 'package.json'), 'utf-
 export const VERSION = pkg.version;
 export const PACKAGE_ROOT = join(__dirname, '..');
 
-export const KNOWLEDGE_DIR = '.knowledge';
-export const KNOWIE_CONFIG = '.knowledge/.knowie.json';
+export const KNOWLEDGE_DIR = 'knowledge';
+export const KNOWIE_CONFIG = 'knowledge/.knowie.json';
 export const TEMPLATES_DIR = '.templates';
 
 export const CORE_FILES = ['principles.md', 'vision.md', 'experience.md'];
