@@ -10,11 +10,25 @@ Knowie gives your project three structured knowledge files that any AI tool can 
 
 ## Quick Start
 
+### From the terminal
+
 ```bash
 npx knowie init
 ```
 
-This creates a `knowledge/` directory in your project and connects it to your AI tools. Then, in your AI tool (e.g., Claude Code):
+Interactive mode — choose your language and which AI tools to connect.
+
+### From your AI tool
+
+Ask your AI to run:
+
+```bash
+npx knowie init --yes
+```
+
+Fully automatic — detects language, finds your AI tools, and sets everything up with zero prompts. Also activates automatically when stdin is not a terminal (piped input, CI, etc.).
+
+### Then, in Claude Code
 
 ```
 /knowie init
@@ -33,6 +47,7 @@ knowledge/
   design/               ← Detailed designs → inform vision
   history/              ← Event records → distilled into experience
   .templates/           ← Reference templates (managed by Knowie)
+  .knowie.json          ← Knowie config (version, language, tools)
 ```
 
 ## How It Works
@@ -83,13 +98,13 @@ Knowie detects and connects to 25+ AI and spec tools:
 
 ## MCP Server
 
-Knowie also works as an MCP (Model Context Protocol) server, so your AI tool can use Knowie directly without the CLI:
+Knowie also works as an MCP (Model Context Protocol) server, so your AI tool can use Knowie directly as native tools:
 
 ```bash
 npx knowie setup-mcp
 ```
 
-This configures the MCP server for your AI tool (Claude Code, Claude Desktop, Cursor, etc.). Once set up, your AI can call `knowie_init`, `knowie_update`, `knowie_judge`, and `knowie_next` as native tools.
+This configures the MCP server for your AI tool (Claude Code, Claude Desktop, Cursor, etc.). Once set up, your AI can call `knowie_init`, `knowie_update`, `knowie_judge`, and `knowie_next` directly.
 
 You can also configure it manually. Add to your AI tool's MCP settings:
 
@@ -112,6 +127,12 @@ When Knowie releases a new version with improved skills or templates:
 npx knowie update
 ```
 
+Or let your AI run it:
+
+```bash
+npx knowie update --yes
+```
+
 This updates skills and templates (managed files) without touching your knowledge files. It also detects any new AI tools you've added since the last run.
 
 ## Design Principles
@@ -120,6 +141,7 @@ This updates skills and templates (managed files) without touching your knowledg
 - **Zero dependencies**: No runtime, no server. Three Markdown files and a few skills.
 - **No lock-in**: Knowie doesn't own your workflow. It connects to your existing tools, not the other way around.
 - **Progressive adoption**: Use just the files, or add the skills, or both.
+- **AI-friendly**: `--yes` flag for fully automatic operation — your AI can install and update Knowie without leaving the conversation.
 
 ## The Theory (for the curious)
 

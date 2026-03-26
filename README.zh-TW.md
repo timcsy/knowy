@@ -10,11 +10,25 @@ Knowie 為你的專案建立三份結構化的知識文件，讓任何 AI 工具
 
 ## 快速開始
 
+### 在終端機
+
 ```bash
 npx knowie init
 ```
 
-這會在你的專案中建立 `knowledge/` 目錄並連結你的 AI 工具。接著，在你的 AI 工具中（例如 Claude Code）：
+互動模式——選擇語言和要連結的 AI 工具。
+
+### 從 AI 工具
+
+讓你的 AI 執行：
+
+```bash
+npx knowie init --yes
+```
+
+全自動——偵測語言、找到你的 AI 工具、完成所有設定，零互動。當 stdin 不是終端機時（pipe、CI 等）也會自動啟用。
+
+### 接著，在 Claude Code 中
 
 ```
 /knowie init
@@ -33,6 +47,7 @@ knowledge/
   design/               ← 詳細設計 → 反映到願景
   history/              ← 事件記錄 → 蒸餾成經驗
   .templates/           ← 參考模板（由 Knowie 管理）
+  .knowie.json          ← Knowie 設定（版本、語言、工具）
 ```
 
 ## 運作方式
@@ -83,7 +98,7 @@ Knowie 偵測並連結 25+ 種 AI 和規格工具：
 
 ## MCP Server
 
-Knowie 也可以作為 MCP（Model Context Protocol）server 運作，讓你的 AI 工具直接使用 Knowie，不需要 CLI：
+Knowie 也可以作為 MCP（Model Context Protocol）server 運作，讓你的 AI 工具直接使用 Knowie 的功能：
 
 ```bash
 npx knowie setup-mcp
@@ -112,6 +127,12 @@ npx knowie setup-mcp
 npx knowie update
 ```
 
+或讓你的 AI 執行：
+
+```bash
+npx knowie update --yes
+```
+
 這會更新 skills 和模板（受管理的文件），不會動到你的知識文件。它也會偵測你在上次執行後新增的 AI 工具。
 
 ## 設計原則
@@ -120,6 +141,7 @@ npx knowie update
 - **零依賴**：不需要 runtime，不需要 server。三份 Markdown 文件和幾個 skills。
 - **不鎖定**：Knowie 不擁有你的工作流程。它連結到你現有的工具，而不是反過來。
 - **漸進採用**：只用文件，或加上 skills，或兩者都用。
+- **AI 友善**：`--yes` 旗標支援全自動操作——你的 AI 可以直接安裝和更新 Knowie，不需要離開對話。
 
 ## 理論基礎（給好奇的人）
 
