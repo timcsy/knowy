@@ -28,29 +28,27 @@ knowledge/
 ## 開始使用
 
 ```bash
-npx knowie init        # 互動模式
-npx knowie init --yes  # 全自動（AI 工具、CI）
+npx knowie init
 ```
 
 搞定。Knowie 建好檔案、偵測你的 AI 工具、全部連結好。
 
+> **用 AI 工具？** 讓它跑這個——全自動，不需要互動：
+> ```bash
+> npx knowie init --yes
+> ```
+
 ## 差別在哪
 
-<details>
-<summary><b>新手範例</b>——「加個登入功能」</summary>
+**新手範例**——「加個登入功能」：
 
 *之前：* AI 生出 OAuth2 + JWT + refresh token，三個服務。
-
 *之後：* AI 讀了原則（「保持簡單——學習專案」）和願景（「單人使用，不需要註冊」），加了簡單的密碼驗證。5 分鐘搞定，不是 5 小時。
-</details>
 
-<details>
-<summary><b>資深範例</b>——「加快取」</summary>
+**資深範例**——「加快取」：
 
 *之前：* AI 選 Redis（網路上最熱門）。但你的原則說「核心功能不用外部依賴」，experience.md 記錄了上季快取導致資料過期。
-
 *之後：* AI 選 in-memory 快取、根據教訓加了 TTL、連結到 `knowledge/design/` 裡的設計文件。
-</details>
 
 ## 加到既有專案
 
@@ -61,7 +59,7 @@ Knowie 可以安全地加到任何專案：
 - **不需要重寫**——從空檔案開始，慢慢填
 - **跟既有文件共存**——`knowledge/` 是 README、wiki、ADR 的補充，不是取代
 
-在既有專案裡跑 `npx knowie init`，先從 `principles.md` 開始就好。願景和經驗準備好了再加。你的 AI 從你填的第一份檔案就開始受益。
+先從 `principles.md` 開始就好。你的 AI 從第一份填好的檔案就開始受益。
 
 ## 運作方式
 
@@ -73,8 +71,7 @@ Knowie 可以安全地加到任何專案：
 
 模板包含引導註解——不用對著空白頁發愁。
 
-<details>
-<summary>子目錄放詳細內容</summary>
+三個子目錄存放詳細內容：
 
 | 目錄 | 放什麼 | 蒸餾到 |
 |------|--------|--------|
@@ -83,7 +80,6 @@ Knowie 可以安全地加到任何專案：
 | `history/` | 事件記錄 | → experience.md |
 
 三份檔案是*摘要*，子目錄是*佐證*。先從摘要開始，細節隨時間長出來。
-</details>
 
 ## Skills
 
@@ -96,13 +92,7 @@ Knowie 可以安全地加到任何專案：
 | `/knowie judge` | 17 項健康檢查：一致性、連貫性、程式碼對齊 |
 | `/knowie next` | 以原則為根基、以經驗為指引，規劃下一步 |
 
-<details>
-<summary>關於 <code>/knowie judge</code></summary>
-
-核心回饋循環。檢查：自洽性（3）、內部一致（3）、文件間交叉引用（6 個方向）、與實際程式碼/git 對齊（3）、總體綜合（1）、超出範圍（1）。
-
-結果：🟢 健康、🟡 值得注意、🔴 需要處理——附具體引用和建議。
-</details>
+`/knowie judge` 是核心回饋循環。它會抓到願景和經驗矛盾、原則和程式碼不符、或文件已經過時的問題。結果：🟢 健康、🟡 值得注意、🔴 需要處理——附具體引用和建議。
 
 ## 已經在用規格工具？
 
@@ -114,13 +104,7 @@ Knowie（為什麼）→  規格工具（做什麼） →  程式碼（怎麼做
 
 規格工具產出需求和設計。Knowie 給它脈絡——你的原則、路線圖和教訓。沒有 Knowie，規格在真空中產出。
 
-`/knowie next` 完成後會偵測並建議接手的規格工具。
-
-<details>
-<summary>支援的規格工具</summary>
-
-Speckit、OpenSpec、Kiro Specs——init 時自動偵測連結。
-</details>
+`/knowie next` 完成後會偵測已安裝的規格工具（Speckit、OpenSpec、Kiro Specs）並建議接手。
 
 ## 支援的工具
 
@@ -131,7 +115,7 @@ Speckit、OpenSpec、Kiro Specs——init 時自動偵測連結。
 `knowie init` 偵測你有什麼，自動注入引用。不用手動設定。
 
 <details>
-<summary>MCP Server</summary>
+<summary>MCP Server（進階）</summary>
 
 支援 MCP 的 AI 工具：
 
@@ -155,10 +139,10 @@ npx knowie setup-mcp
 ## 更新
 
 ```bash
-npx knowie update       # 或 --yes 全自動
+npx knowie update
 ```
 
-更新 skills 和模板。永不動你的知識文件。
+更新 skills 和模板。永不動你的知識文件。加 `--yes` 全自動。
 
 ## 設計
 

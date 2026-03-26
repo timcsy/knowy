@@ -28,29 +28,27 @@ Your AI reads them before every task. Its suggestions now align with your projec
 ## Get Started
 
 ```bash
-npx knowie init        # interactive
-npx knowie init --yes  # automatic (AI tools, CI)
+npx knowie init
 ```
 
 That's it. Knowie creates the files, detects your AI tools, and connects everything.
 
+> **Using an AI tool?** Let it run this instead — fully automatic, no prompts:
+> ```bash
+> npx knowie init --yes
+> ```
+
 ## What Changes
 
-<details>
-<summary><b>Beginner example</b> — "Add user login"</summary>
+**Beginner example** — "Add user login":
 
 *Before:* AI generates OAuth2 + JWT + refresh tokens with three services.
-
 *After:* AI reads your principles ("keep it simple — learning project") and vision ("single-user, no registration"). Adds a simple password check. 5 minutes, not 5 hours.
-</details>
 
-<details>
-<summary><b>Senior example</b> — "Add caching"</summary>
+**Senior example** — "Add caching":
 
 *Before:* AI picks Redis (popular online). But your principle says "no external dependencies for core," and experience.md records that caching caused stale data last quarter.
-
 *After:* AI picks in-memory caching, adds TTL from the stale-data lesson, links to the design doc in `knowledge/design/`.
-</details>
 
 ## Adding to an Existing Project
 
@@ -61,7 +59,7 @@ Knowie is safe to add at any point:
 - **Won't force a rewrite** — start with empty files and fill them gradually
 - **Works alongside existing docs** — `knowledge/` complements your README, wiki, or ADRs
 
-Run `npx knowie init` in your existing project and start with just `principles.md`. Add vision and experience when you're ready. Your AI starts benefiting from the first file you fill in.
+Start with just `principles.md`. Your AI benefits from the first file you fill in.
 
 ## How It Works
 
@@ -73,8 +71,7 @@ Run `npx knowie init` in your existing project and start with just `principles.m
 
 Templates include guided comments — no blank page anxiety.
 
-<details>
-<summary>Subdirectories for supporting details</summary>
+Three subdirectories hold supporting details:
 
 | Directory | Contains | Distills into |
 |-----------|----------|---------------|
@@ -82,8 +79,7 @@ Templates include guided comments — no blank page anxiety.
 | `design/` | Architecture decisions | → vision.md |
 | `history/` | Event records | → experience.md |
 
-Think of the three files as the *summary* and subdirectories as the *evidence*. Start with the summary; details grow over time.
-</details>
+The three files are the *summary*; subdirectories are the *evidence*. Start with the summary — details grow over time.
 
 ## Skills
 
@@ -96,13 +92,7 @@ For AI tools with skill support (e.g., Claude Code):
 | `/knowie judge` | 17-point health check: consistency, coherence, code alignment |
 | `/knowie next` | Plan next step, grounded in principles and experience |
 
-<details>
-<summary>About <code>/knowie judge</code></summary>
-
-The core feedback loop. Checks: self-consistency (3), internal coherence (3), cross-references between files (6 directional), alignment with actual code/git (3), overall synthesis (1), beyond-scope (1).
-
-Results: 🟢 healthy, 🟡 worth watching, 🔴 needs action — with specific quotes and suggestions.
-</details>
+`/knowie judge` is the core feedback loop. It catches when your vision contradicts your experience, your principles don't match your code, or your files have gone stale. Results: 🟢 healthy, 🟡 worth watching, 🔴 needs action — with specific quotes and suggestions.
 
 ## Already Using a Spec Tool?
 
@@ -114,13 +104,7 @@ Knowie (why)  →  Spec tool (what)  →  Code (how)
 
 Spec tools generate requirements and designs. Knowie gives them context — your principles, roadmap, and lessons. Without Knowie, specs are written in a vacuum.
 
-Knowie detects installed spec tools and suggests handoff after `/knowie next`.
-
-<details>
-<summary>Supported spec tools</summary>
-
-Speckit, OpenSpec, Kiro Specs — auto-detected and connected during init.
-</details>
+Knowie detects installed spec tools (Speckit, OpenSpec, Kiro Specs) and suggests handoff after `/knowie next`.
 
 ## Supported Tools
 
@@ -131,7 +115,7 @@ Speckit, OpenSpec, Kiro Specs — auto-detected and connected during init.
 `knowie init` detects what you have and injects references. No manual config.
 
 <details>
-<summary>MCP Server</summary>
+<summary>MCP Server (advanced)</summary>
 
 For AI tools supporting MCP:
 
@@ -155,10 +139,10 @@ Or manually:
 ## Updating
 
 ```bash
-npx knowie update       # or --yes for automatic
+npx knowie update
 ```
 
-Updates skills and templates. Never touches your knowledge files.
+Updates skills and templates. Never touches your knowledge files. Add `--yes` for automatic mode.
 
 ## Design
 
